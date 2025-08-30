@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject player; //set to character gameobject with a collider
     public float currentHealth;
     public float maxHealth = 100f; //change to balance
-    public float minHealth = 0f;
+    public float minHealth = 1f;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        if (currentHealth < minHealth)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -26,11 +27,11 @@ public class PlayerHealth : MonoBehaviour
     }
     void Die()
     {
-        //reset Scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "enemy")
         {
             TakeDamage(10); //change to balance
         }
