@@ -6,7 +6,6 @@ public class EnemyHealth : MonoBehaviour
     public float currentEnemyHealth;
     public float maxEnemyHealth = 10;
     public float minEnemyHealth = 0;
-    SpeedUp speedUp;
 
     private void Start()
     {
@@ -17,15 +16,16 @@ public class EnemyHealth : MonoBehaviour
         if (currentEnemyHealth <= 0) 
         { 
             Destroy(enemy);
-            speedUp.IncreaseSpeed();
+            Debug.Log("enemy is slain");
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.tag == "sword")
+        if (collision.gameObject.tag == "sword")
         {
             currentEnemyHealth -= 5;
             currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+            Debug.Log("damage has been taken");
         }
     }
 }
