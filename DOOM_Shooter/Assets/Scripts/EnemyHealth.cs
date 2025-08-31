@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     public float currentEnemyHealth;
     public float maxEnemyHealth = 10;
     public float minEnemyHealth = 0;
+    SpeedUp speedUp;
 
     private void Start()
     {
@@ -13,9 +14,10 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (currentEnemyHealth < minEnemyHealth) 
+        if (currentEnemyHealth <= 0) 
         { 
             Destroy(enemy);
+            speedUp.IncreaseSpeed();
         }
     }
     private void OnCollisionEnter(Collision collision)
