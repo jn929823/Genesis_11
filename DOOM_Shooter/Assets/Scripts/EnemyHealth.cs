@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public GameObject enemy;
+    Rigidbody rb;
     public float currentEnemyHealth;
     public float maxEnemyHealth = 10;
     public float minEnemyHealth = 1;
@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         currentEnemyHealth = maxEnemyHealth;
     }
     private void Update()
@@ -17,15 +18,19 @@ public class EnemyHealth : MonoBehaviour
         if (currentEnemyHealth < minEnemyHealth) 
         {
             PlayerMovement.SpeedIncrease();
-            Destroy(enemy);
+            Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.tag == "sword")
+        if (other.tag == "sword")
         {
-            currentEnemyHealth -= 5;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+            EnemyTakeDamage(5);
         }
+    }
+    void EnemyTakeDamage(float amount)
+    {
+        currentEnemyHealth -= amount;
+        currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
     }
 }
