@@ -3,10 +3,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     Rigidbody rb;
+    public GameObject enemy;
     public float currentEnemyHealth;
     public float maxEnemyHealth = 10;
-    public float minEnemyHealth = 1;
+    public float minEnemyHealth = 0;
     public PlayerMovement PlayerMovement;
+    public PlayerHealth PlayerHealth;
 
     private void Start()
     {
@@ -15,17 +17,19 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (currentEnemyHealth < minEnemyHealth) 
+        if (currentEnemyHealth == 0) 
         {
             PlayerMovement.SpeedIncrease();
-            Destroy(gameObject);
+            Destroy(enemy);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "sword")
+        if (other.tag == "Player")
         {
             EnemyTakeDamage(5);
+            PlayerHealth.TakeDamage(10);
+
         }
     }
     void EnemyTakeDamage(float amount)
