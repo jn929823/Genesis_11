@@ -12,6 +12,14 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        GameObject player = GameObject.Find("Player");
+        
+        if(player != null)
+        {
+            PlayerHealth = player.GetComponent<PlayerHealth>();
+            PlayerMovement = player.GetComponent<PlayerMovement>();
+        }
+        
         rb = GetComponent<Rigidbody>();
         currentEnemyHealth = maxEnemyHealth;
     }
