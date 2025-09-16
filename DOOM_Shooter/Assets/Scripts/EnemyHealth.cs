@@ -36,8 +36,10 @@ public class EnemyHealth : MonoBehaviour
         if (other.tag == "sword")
         {
             EnemyTakeDamage(5);
+        }
+        if (other.tag == "Player")
+        {
             PlayerHealth.TakeDamage(10);
-
         }
     }
     void EnemyTakeDamage(float amount)
