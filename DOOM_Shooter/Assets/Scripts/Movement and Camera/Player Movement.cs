@@ -71,5 +71,13 @@ public class PlayerMovement : MonoBehaviour
     public void SpeedIncrease()
     {
         moveSpeed = moveSpeed += 1;
+        if (moveSpeed >= 5)//default speed
+        {
+            Invoke("SpeedDecrease", 4f);
+        }
+    }
+    void SpeedDecrease()
+    {
+        moveSpeed = moveSpeed -= 1;
     }
 }
