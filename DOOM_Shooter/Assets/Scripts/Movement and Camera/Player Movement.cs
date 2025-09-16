@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
      rb = GetComponent<Rigidbody>();
      rb.freezeRotation = true;
+     moveSpeed = 5;
     }
     private void FixedUpdate()
     {
@@ -66,5 +67,9 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
+    }
+    public void SpeedIncrease()
+    {
+        moveSpeed = moveSpeed += 1;
     }
 }
