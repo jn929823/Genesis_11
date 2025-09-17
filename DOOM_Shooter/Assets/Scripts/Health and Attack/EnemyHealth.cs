@@ -33,11 +33,13 @@ public class EnemyHealth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "sword")
         {
             EnemyTakeDamage(5);
+        }
+        if (other.tag == "Player")
+        {
             PlayerHealth.TakeDamage(10);
-
         }
     }
     void EnemyTakeDamage(float amount)
