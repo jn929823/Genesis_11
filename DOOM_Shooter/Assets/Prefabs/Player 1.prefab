@@ -492,6 +492,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   minHealth: 0
+  currentHealthUI: {fileID: 0}
 --- !u!114 &1987875920944542323
 MonoBehaviour:
   m_ObjectHideFlags: 0

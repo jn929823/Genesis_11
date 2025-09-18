@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7109721814024084463}
   m_Layer: 0
   m_Name: Enemy Range
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 1398511939273364724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039195556, y: 0.018049609, z: -0.074929476}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 18bea260ae4f836428437e24b30d3491, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,12 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eb29593ceb17442b001202be4eb58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 1398511939273364724}
   currentEnemyHealth: 0
   maxEnemyHealth: 10
   minEnemyHealth: 0
-  PlayerMovement: {fileID: 0}
-  PlayerHealth: {fileID: 0}
+  PlayerMovement: {fileID: 3859943191007048247, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+  PlayerHealth: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
 --- !u!114 &1201458140311673941
 MonoBehaviour:
   m_ObjectHideFlags: 0
