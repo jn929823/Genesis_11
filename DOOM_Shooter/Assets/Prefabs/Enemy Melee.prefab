@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6940017514551567999}
   - component: {fileID: 5018372163148544740}
   - component: {fileID: 5211970492729934567}
+  - component: {fileID: 708574826872392243}
   - component: {fileID: 7317424887093136165}
   m_Layer: 0
   m_Name: Enemy Melee
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1752406244127306185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -126,8 +127,21 @@ MonoBehaviour:
   currentEnemyHealth: 0
   maxEnemyHealth: 10
   minEnemyHealth: 0
-  PlayerMovement: {fileID: 1899548328027431321, guid: fbdf0dece4b90e34ea267a650a8a1231, type: 3}
-  PlayerHealth: {fileID: 1819200089242102065, guid: fbdf0dece4b90e34ea267a650a8a1231, type: 3}
+  PlayerMovement: {fileID: 3859943191007048247, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+  PlayerHealth: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+--- !u!114 &708574826872392243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752406244127306185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5bd34a3da913e4090490ddcb17c8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!54 &7317424887093136165
 Rigidbody:
   m_ObjectHideFlags: 0
