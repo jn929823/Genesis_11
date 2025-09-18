@@ -1,18 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject player; //set to character gameobject with a collider
     Rigidbody rb;
-    public float currentHealth;
-    public float maxHealth = 100f; //change to balance
-    public float minHealth = 0f;
+    public int currentHealth;
+    public int maxHealth = 100; //change to balance
+    public int minHealth = 0;
+    //public Text healthText;
 
     void Start()
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
+       //healthText = currentHealth;
+
+    }
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        //healthText.Text = currentHealth;
     }
     void Update()
     {
@@ -20,12 +30,11 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
     }
-    public void TakeDamage(float amount)
-    {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-    }
+
+
+
     void Die()
     {
         //reset Scene
