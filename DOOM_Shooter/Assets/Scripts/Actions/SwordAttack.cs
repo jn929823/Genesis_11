@@ -4,6 +4,7 @@ public class SwordAttack : MonoBehaviour
 {
     public GameObject sword;
     bool isAttacking;
+    Animator animator;
 
 
     private void Start()
@@ -11,6 +12,8 @@ public class SwordAttack : MonoBehaviour
         sword.SetActive(false);
 
         isAttacking = false;
+
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -20,8 +23,9 @@ public class SwordAttack : MonoBehaviour
             {
                 isAttacking = true;
                 sword.SetActive(true);
+                animator.SetTrigger("OnClick");
                 //sword animations and sounds
-                Invoke("AttackCleanup", 1f);
+                Invoke("AttackCleanup", 0.5f);
             }
         }
     }
