@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 955083562474179219}
   - component: {fileID: 3809373502735556024}
   - component: {fileID: 795014533950616673}
+  - component: {fileID: 1471200446470634554}
   m_Layer: 0
   m_Name: sword idle
   m_TagString: Untagged
@@ -110,3 +111,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!222 &1471200446470634554
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655486998857952897}
+  m_CullTransparentMesh: 1
