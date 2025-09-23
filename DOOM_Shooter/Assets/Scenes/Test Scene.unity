@@ -190,9 +190,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4515265288035154822, guid: 2fc818ff86adce9439caa20185618cdf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 29288094}
-    - targetCorrespondingSourceObject: {fileID: 4515265288035154822, guid: 2fc818ff86adce9439caa20185618cdf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 29288093}
   m_SourcePrefab: {fileID: 100100000, guid: 2fc818ff86adce9439caa20185618cdf, type: 3}
 --- !u!4 &29288091 stripped
 Transform:
@@ -204,18 +201,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4515265288035154822, guid: 2fc818ff86adce9439caa20185618cdf, type: 3}
   m_PrefabInstance: {fileID: 29288090}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &29288093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29288092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fcce7eeed038449a357ba56beaccf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &29288094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -335,6 +320,11 @@ Transform:
   - {fileID: 1172349657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &628486031 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8275336093753657055, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+  m_PrefabInstance: {fileID: 1235076839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &713607062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,7 +759,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1987875920944542323, guid: 0447d61e21101d24c877e015c094f332, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4684710603409102518, guid: 0447d61e21101d24c877e015c094f332, type: 3}
     m_AddedGameObjects: []
@@ -987,8 +978,8 @@ Canvas:
   m_GameObject: {fileID: 1648108241}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 628486031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -999,7 +990,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_TargetDisplay: 0
 --- !u!224 &1648108245
 RectTransform:
