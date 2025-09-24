@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         
-        if(player != null)
+        if (player != null)
         {
             PlayerHealth = player.GetComponent<PlayerHealth>();
             PlayerMovement = player.GetComponent<PlayerMovement>();
