@@ -1,34 +1,43 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject player; //set to character gameobject with a collider
     Rigidbody rb;
-    public float currentHealth;
-    public float maxHealth = 100f; //change to balance
-    public float minHealth = 0f;
+    public int currentHealth;
+    public int maxHealth = 100; //change to balance
+    public int minHealth = 0;
+    public Text currentHealthUI;
 
     void Start()
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
+
     }
-    void Update()
-    {
-        if (currentHealth < minHealth)
-        {
-            Die();
-        }
-    }
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        currentHealthUI.text = $"{currentHealth}";
     }
+    void Update()
+    {
+        //WE SHOULD CHANGE THIS INTO ITS OWN FUNCTION THAT ONLY CHECKS THIS WHEN THE PLAYER TAKES DAMAGE
+        if (currentHealth <= minHealth)
+        {
+            Die();
+        }
+
+    }
+
     void Die()
     {
         //reset Scene
+        Debug.Log("You died.");
     }
     //private void OnCollisionEnter(Collision collision)
     //{
