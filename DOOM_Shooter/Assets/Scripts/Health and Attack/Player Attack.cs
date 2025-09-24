@@ -3,14 +3,17 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject sword;
-    private void Start()
+    void Start()
     {
+
         sword.SetActive(false);
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         { 
+
+
             Attack();
         }
     }
