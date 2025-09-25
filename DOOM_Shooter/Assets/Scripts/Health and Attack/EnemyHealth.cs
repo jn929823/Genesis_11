@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [Header("GameObjects")]
     Rigidbody rb;
     public GameObject enemy;
-    [Header("Health Floats")]
     public float currentEnemyHealth;
     public float maxEnemyHealth = 10;
     public float minEnemyHealth = 0;
-    [Header("Outside Refrences")]
     public PlayerMovement PlayerMovement;
     public PlayerHealth PlayerHealth;
 
