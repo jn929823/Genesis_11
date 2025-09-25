@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 origin = Vector3.zero;
     private Vector3 dirToTarget = Vector3.zero;
     private Vector3 horizontalDir = Vector3.zero;
+    private NavMeshAgent navAgent;
     Rigidbody rb;
 
     private void Awake()
@@ -18,12 +20,8 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
+        navAgent = GetComponent<NavMeshAgent>();
 
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
@@ -44,17 +42,7 @@ public class EnemyMovement : MonoBehaviour
         //Calls CanSeeTarget to use raycast
         if (CanSeeTarget())
         {
-            //Finds the player's position, uses its own y position so it doesn't travel upward
-            Vector3 targetPos = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
-
-            //Move the enemy toward the player
-            transform.position = Vector3.MoveTowards(this.transform.position, targetPos, 3 * Time.deltaTime);
-
-            //Rotate the enemy toward the player
-            transform.rotation = Quaternion.LookRotation(horizontalDir, Vector3.up);
-
-
-            //Still need to check for if in range for ranged enemies
+            navAgent.SetDestination(target.transform.position);
         }
     }
 
