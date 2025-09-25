@@ -10,8 +10,8 @@ public class EnemyHealth : MonoBehaviour
     public float maxEnemyHealth = 10;
     public float minEnemyHealth = 0;
     [Header("Outside Refrences")]
-    public PlayerMovement PlayerMovement;
-    public PlayerHealth PlayerHealth;
+    public PlayerMovement playerMovement;
+    public PlayerHealth playerHealth;
 
     private void Start()
     {
@@ -19,8 +19,8 @@ public class EnemyHealth : MonoBehaviour
         
         if (player != null)
         {
-            PlayerHealth = player.GetComponent<PlayerHealth>();
-            PlayerMovement = player.GetComponent<PlayerMovement>();
+            playerHealth = player.GetComponent<PlayerHealth>();
+            playerMovement = player.GetComponent<PlayerMovement>();
         }
         
         rb = GetComponent<Rigidbody>();
@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentEnemyHealth == 0) 
         {
-            PlayerMovement.SpeedIncrease();
+            playerMovement.SpeedIncrease();
             Destroy(enemy);
         }
     }
@@ -42,7 +42,7 @@ public class EnemyHealth : MonoBehaviour
         }
         if (other.tag == "Player")
         {
-            PlayerHealth.TakeDamage(10);
+            playerHealth.TakeDamage(10);
         }
     }
     void EnemyTakeDamage(float amount)
