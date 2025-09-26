@@ -5,14 +5,11 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("GameObjects")]
     public GameObject player; //set to character gameobject with a collider
     Rigidbody rb;
-    [Header("Health Floats")]
     public int currentHealth;
     public int maxHealth = 100; //change to balance
     public int minHealth = 0;
-    [Header("UI")]
     public Text currentHealthUI;
 
     void Start()
@@ -26,10 +23,15 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealthUI.text = $"{currentHealth}";
+    }
+    void Update()
+    {
+        //WE SHOULD CHANGE THIS INTO ITS OWN FUNCTION THAT ONLY CHECKS THIS WHEN THE PLAYER TAKES DAMAGE
         if (currentHealth <= minHealth)
         {
             Die();
         }
+
     }
 
     void Die()
@@ -37,4 +39,11 @@ public class PlayerHealth : MonoBehaviour
         //reset Scene
         Debug.Log("You died.");
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (gameObject.tag == "enemy")
+    //    {
+    //        TakeDamage(10); //change to balance
+    //    }
+    //}
 }

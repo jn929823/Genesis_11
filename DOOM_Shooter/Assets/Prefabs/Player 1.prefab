@@ -404,9 +404,8 @@ GameObject:
   - component: {fileID: 3859943191007048247}
   - component: {fileID: 7795950845384402479}
   - component: {fileID: 1987875920944542323}
-  - component: {fileID: 4247405938519287158}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,24 +506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 5319585873734412081}
---- !u!114 &4247405938519287158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8488993918072693775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb0623ebf0aee54897765ee546a3fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  haveGreenKey: 0
-  greenKey: {fileID: 0}
-  haveBlueKey: 0
-  blueKey: {fileID: 0}
-  haveRedKey: 0
-  redKey: {fileID: 0}
 --- !u!1 &8829887267133603367
 GameObject:
   m_ObjectHideFlags: 0
