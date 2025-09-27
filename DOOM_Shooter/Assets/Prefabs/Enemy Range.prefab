@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 126615501315268492}
   - component: {fileID: 7325615056379552619}
   - component: {fileID: 3723913975095501249}
-  - component: {fileID: 1201458140311673941}
+  - component: {fileID: -3144986878489608767}
+  - component: {fileID: -5976102460213512501}
   - component: {fileID: 7109721814024084463}
   m_Layer: 0
   m_Name: Enemy Range
@@ -127,9 +128,9 @@ MonoBehaviour:
   currentEnemyHealth: 0
   maxEnemyHealth: 10
   minEnemyHealth: 0
-  PlayerMovement: {fileID: 3859943191007048247, guid: 0447d61e21101d24c877e015c094f332, type: 3}
-  PlayerHealth: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
---- !u!114 &1201458140311673941
+  playerMovement: {fileID: 0}
+  playerHealth: {fileID: 0}
+--- !u!114 &-3144986878489608767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +143,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &-5976102460213512501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398511939273364724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f9ef2a25184489087b8c6c785383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8488993918072693775, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+  bullet: {fileID: 8848842837103073736, guid: cfb3ca3a94015114c976d5811b5a0f4c, type: 3}
+  rateOfFire: 0.5
 --- !u!54 &7109721814024084463
 Rigidbody:
   m_ObjectHideFlags: 0
