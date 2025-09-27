@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6940017514551567999}
   - component: {fileID: 5018372163148544740}
   - component: {fileID: 5211970492729934567}
-  - component: {fileID: 708574826872392243}
+  - component: {fileID: 4191868227915958941}
+  - component: {fileID: 7750689407060419845}
   - component: {fileID: 7317424887093136165}
   - component: {fileID: -3992648541630532082}
   m_Layer: 0
@@ -128,9 +129,9 @@ MonoBehaviour:
   currentEnemyHealth: 0
   maxEnemyHealth: 10
   minEnemyHealth: 0
-  PlayerMovement: {fileID: 3859943191007048247, guid: 0447d61e21101d24c877e015c094f332, type: 3}
-  PlayerHealth: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
---- !u!114 &708574826872392243
+  playerMovement: {fileID: 0}
+  playerHealth: {fileID: 0}
+--- !u!114 &4191868227915958941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +141,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d5bd34a3da913e4090490ddcb17c8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &7750689407060419845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752406244127306185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36832747f4821a45be26270d7451684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8488993918072693775, guid: 0447d61e21101d24c877e015c094f332, type: 3}
