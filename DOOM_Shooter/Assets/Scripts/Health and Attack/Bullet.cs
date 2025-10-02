@@ -35,6 +35,11 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Player")
         {
             playerHealth.TakeDamage(10);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Level")
+        {
+            Destroy(gameObject);
         }
     }
 }
