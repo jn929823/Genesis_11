@@ -7,9 +7,15 @@ public class Bullet : MonoBehaviour
     public float speed = 15;
     private Vector3 velocity;
 
+    public PlayerHealth playerHealth;
+
     void Start()
     {
+        GameObject player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
+
+        if (player != null)
+            playerHealth = player.GetComponent<PlayerHealth>();
 
         Destroy(gameObject, 5);
     }
@@ -22,5 +28,18 @@ public class Bullet : MonoBehaviour
     public void SetVelocity(Vector3 direction)
     {
         velocity = direction * speed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerHealth.TakeDamage(10);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Level")
+        {
+            Destroy(gameObject);
+        }
     }
 }
