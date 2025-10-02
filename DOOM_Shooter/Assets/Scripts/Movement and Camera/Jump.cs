@@ -24,7 +24,7 @@ public class Jump : MonoBehaviour
     {
         canJump = false;
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-        Invoke("ResetJump", 2f);
+        Invoke("ResetJump", 1f);
     }
     void ResetJump()
     {
