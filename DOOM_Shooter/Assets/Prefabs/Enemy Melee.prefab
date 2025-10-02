@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6940017514551567999}
   - component: {fileID: 5018372163148544740}
   - component: {fileID: 5211970492729934567}
+  - component: {fileID: 4191868227915958941}
   - component: {fileID: 7750689407060419845}
   - component: {fileID: 7317424887093136165}
   - component: {fileID: -3992648541630532082}
@@ -219,7 +220,6 @@ MonoBehaviour:
   minEnemyHealth: 0
   playerMovement: {fileID: 0}
   playerHealth: {fileID: 0}
-<<<<<<< Updated upstream
   audioSource: {fileID: 3158066258268430058}
 --- !u!114 &4191868227915958941
 MonoBehaviour:
@@ -239,8 +239,6 @@ MonoBehaviour:
   horizontalDir: {x: 0, y: 0, z: 0}
   navAgent: {fileID: 0}
   distance: 0
-=======
->>>>>>> Stashed changes
 --- !u!114 &7750689407060419845
 MonoBehaviour:
   m_ObjectHideFlags: 0

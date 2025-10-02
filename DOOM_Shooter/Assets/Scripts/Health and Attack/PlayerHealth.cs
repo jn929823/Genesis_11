@@ -23,11 +23,15 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealthUI.text = $"{currentHealth}";
-
+    }
+    void Update()
+    {
+        //WE SHOULD CHANGE THIS INTO ITS OWN FUNCTION THAT ONLY CHECKS THIS WHEN THE PLAYER TAKES DAMAGE
         if (currentHealth <= minHealth)
         {
             Die();
         }
+
     }
 
     void Die()
@@ -35,4 +39,11 @@ public class PlayerHealth : MonoBehaviour
         //reset Scene
         Debug.Log("You died.");
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (gameObject.tag == "enemy")
+    //    {
+    //        TakeDamage(10); //change to balance
+    //    }
+    //}
 }
