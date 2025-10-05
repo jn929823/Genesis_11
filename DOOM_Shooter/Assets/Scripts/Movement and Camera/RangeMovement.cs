@@ -10,6 +10,7 @@ public class RangeMovement : MonoBehaviour
     public Vector3 horizontalDir = Vector3.zero;
     public NavMeshAgent navAgent;
     public float distance;
+    public float stoppingDistance = 10f;
     Rigidbody rb;
 
     public GameObject bullet;
@@ -26,6 +27,7 @@ public class RangeMovement : MonoBehaviour
     public void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.stoppingDistance = stoppingDistance;
     }
 
     void Update()
@@ -79,7 +81,7 @@ public class RangeMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(origin, horizontalDir, out hit, distance))
         {
-            if ((hit.collider.gameObject == target || hit.collider.tag == "enemy") && distance >= 10)
+            if (hit.collider.gameObject == target || hit.collider.tag == "enemy")
             {
                 Debug.Log("Distance: " + distance);
                 return true;
