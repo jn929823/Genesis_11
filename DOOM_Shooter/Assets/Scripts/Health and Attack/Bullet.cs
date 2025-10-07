@@ -4,12 +4,26 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody rb;
 
+    private GameObject player;
+    private GameObject playerObject;
+
     public float speed = 15;
     private Vector3 velocity;
 
+    public PlayerHealth playerHealth;
+
     void Start()
     {
+        player = GameObject.Find("Player");
+        playerObject = GameObject.Find("PlayerObject");
         rb = GetComponent<Rigidbody>();
+
+        if (player != null)
+            playerHealth = player.GetComponent<PlayerHealth>();
+
+        Vector3 directionToPlayer = playerObject.transform.position - this.transform.position;
+
+        this.transform.rotation = Quaternion.FromToRotation(this.transform.right, directionToPlayer) * this.transform.rotation;
 
         Destroy(gameObject, 5);
     }
@@ -22,5 +36,18 @@ public class Bullet : MonoBehaviour
     public void SetVelocity(Vector3 direction)
     {
         velocity = direction * speed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerHealth.TakeDamage(10);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Level")
+        {
+            Destroy(gameObject);
+        }
     }
 }
