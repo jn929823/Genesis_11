@@ -46,6 +46,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void UnlockCursor()
+    {
+
+    }
+
     private IEnumerator CameraFall()
     {
         float fallSpeed = 5f;
@@ -75,6 +80,8 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(CameraFall());
         bloodParticles.SetActive(true);
         StartCoroutine(ShowGameOverScreen());
-        GetComponent<PlayerMovement>().enabled = false;
+        Cursor.visible = true;
+        GetComponent<LockMouse>().enabled = false;
+
     }
 }
