@@ -13,16 +13,9 @@ public class PlayerHealth : MonoBehaviour
     public int minHealth = 0;
     public Text currentHealthUI;
     public GameObject playerCamera;
-    public Text gameOverText;
-    public Button retryButton;
-    public Button quitButton;
-    public GameObject bloodParticles;
-    public GameObject gameOverScreen;
 
     void Start()
     {
-        gameOverScreen.SetActive(false);
-        bloodParticles.SetActive(false);
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
 
@@ -36,13 +29,6 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= minHealth)
         {
             Die();
-        }
-    }
-
-    private void RestartGame()
-    {
-        {
-            SceneManager.LoadScene("Level"); 
         }
     }
 
@@ -61,20 +47,9 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowGameOverScreen()
-    {
-        yield return new WaitForSeconds(1f);
-        gameOverScreen.SetActive(true);
-        gameOverText.CrossFadeAlpha(1f, 1f, false);
-        retryButton.onClick.AddListener(RestartGame);
-    }
-
     void Die()
     {
         GetComponent<PlayerMovement>().enabled = false;
         StartCoroutine(CameraFall());
-        bloodParticles.SetActive(true);
-        StartCoroutine(ShowGameOverScreen());
-        GetComponent<PlayerMovement>().enabled = false;
     }
 }
