@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
         {
             playerMovement.SpeedIncrease();
             Destroy(enemy);
+            audioSource.Play();
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -44,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
         if (other.tag == "Player")
         {
             playerHealth.TakeDamage(10);
-            audioSource.Play();
+            
         }
     }
     void EnemyTakeDamage(float amount)
