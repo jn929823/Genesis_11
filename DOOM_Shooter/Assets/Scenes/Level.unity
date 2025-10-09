@@ -26509,6 +26509,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 611606767}
+    - target: {fileID: 862018060292577049, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+      propertyPath: m_SortingOrder
+      value: 168
+      objectReference: {fileID: 0}
     - target: {fileID: 3018961723446330665, guid: 0447d61e21101d24c877e015c094f332, type: 3}
       propertyPath: m_LocalPosition.x
       value: -74
@@ -26550,9 +26554,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 1038638059}
+    - target: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+      propertyPath: retryButton
+      value: 
+      objectReference: {fileID: 763912580}
+    - target: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 1769927961}
+    - target: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1685752508}
+    - target: {fileID: 7795950845384402479, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 372694210}
     - target: {fileID: 8488993918072693775, guid: 0447d61e21101d24c877e015c094f332, type: 3}
       propertyPath: m_Name
       value: Player

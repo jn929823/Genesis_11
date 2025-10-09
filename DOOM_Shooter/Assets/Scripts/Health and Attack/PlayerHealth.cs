@@ -4,7 +4,13 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour
+public interface IPlayerHealth
+{
+    void TakeDamage(int amount);
+    void UnlockCursor();
+}
+
+public class PlayerHealth : MonoBehaviour, IPlayerHealth
 {
     public GameObject player; //set to character gameobject with a collider
     Rigidbody rb;
@@ -18,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     public Button quitButton;
     public GameObject bloodParticles;
     public GameObject gameOverScreen;
+    public GameObject notgameOver;
 
     void Start()
     {
@@ -27,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
     }
+
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -35,20 +43,31 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= minHealth)
         {
+
+
             Die();
         }
     }
 
+
+
+
     private void RestartGame()
     {
-        {
-            SceneManager.LoadScene("Level"); 
-        }
+
+        SceneManager.LoadScene("Level");
+
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void UnlockCursor()
     {
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private IEnumerator CameraFall()
@@ -72,16 +91,15 @@ public class PlayerHealth : MonoBehaviour
         gameOverScreen.SetActive(true);
         gameOverText.CrossFadeAlpha(1f, 1f, false);
         retryButton.onClick.AddListener(RestartGame);
+        quitButton.onClick.AddListener(QuitGame);
     }
 
     void Die()
     {
-        GetComponent<PlayerMovement>().enabled = false;
-        StartCoroutine(CameraFall());
+
         bloodParticles.SetActive(true);
         StartCoroutine(ShowGameOverScreen());
-        Cursor.visible = true;
-        GetComponent<LockMouse>().enabled = false;
-
+        GetComponent<PlayerMovement>().enabled = false;
+        StartCoroutine(CameraFall());
     }
 }
