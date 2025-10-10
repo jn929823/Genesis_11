@@ -4,13 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public interface IPlayerHealth
-{
-    void TakeDamage(int amount);
-    void UnlockCursor();
-}
-
-public class PlayerHealth : MonoBehaviour, IPlayerHealth
+public class PlayerHealth : MonoBehaviour
 {
     public GameObject player; //set to character gameobject with a collider
     Rigidbody rb;
