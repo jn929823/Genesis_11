@@ -16,14 +16,13 @@ public class PlayerHealth : MonoBehaviour
     public Text gameOverText;
     public Button retryButton;
     public Button quitButton;
-    public GameObject bloodParticles;
     public GameObject gameOverScreen;
     public GameObject notgameOver;
 
     void Start()
     {
+        notgameOver.SetActive(true);
         gameOverScreen.SetActive(false);
-        bloodParticles.SetActive(false);
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
 
@@ -50,19 +49,16 @@ public class PlayerHealth : MonoBehaviour
     {
 
         SceneManager.LoadScene("Level");
+        Debug.Log("Restarted");
 
     }
 
     private void QuitGame()
     {
         Application.Quit();
+        Debug.Log("its over");
     }
 
-    public void UnlockCursor()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
 
     private IEnumerator CameraFall()
     {
@@ -83,6 +79,9 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gameOverScreen.SetActive(true);
+        notgameOver.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         gameOverText.CrossFadeAlpha(1f, 1f, false);
         retryButton.onClick.AddListener(RestartGame);
         quitButton.onClick.AddListener(QuitGame);
@@ -91,7 +90,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
 
-        bloodParticles.SetActive(true);
         StartCoroutine(ShowGameOverScreen());
         GetComponent<PlayerMovement>().enabled = false;
         StartCoroutine(CameraFall());
