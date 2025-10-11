@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
      rb = GetComponent<Rigidbody>();
      rb.freezeRotation = true;
-     moveSpeed = 5;
+     moveSpeed = 8;
     }
     private void FixedUpdate()
     {

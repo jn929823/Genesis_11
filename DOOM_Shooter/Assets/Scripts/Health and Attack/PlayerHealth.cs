@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100; //change to balance
     public int minHealth = 0;
     public Text currentHealthUI;
+    public GameObject playerCamera;
 
     void Start()
     {
@@ -23,27 +25,31 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealthUI.text = $"{currentHealth}";
-    }
-    void Update()
-    {
-        //WE SHOULD CHANGE THIS INTO ITS OWN FUNCTION THAT ONLY CHECKS THIS WHEN THE PLAYER TAKES DAMAGE
+
         if (currentHealth <= minHealth)
         {
             Die();
         }
+    }
 
+    private IEnumerator CameraFall()
+    {
+        float fallSpeed = 5f;
+        Vector3 initialPosition = playerCamera.transform.position;
+        Vector3 fallPosition = new Vector3(initialPosition.x, initialPosition.y - 10f, initialPosition.z);
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * fallSpeed;
+            playerCamera.transform.position = Vector3.Lerp(initialPosition, fallPosition, t);
+            yield return null;
+        }
     }
 
     void Die()
     {
-        //reset Scene
-        Debug.Log("You died.");
+        GetComponent<PlayerMovement>().enabled = false;
+        StartCoroutine(CameraFall());
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (gameObject.tag == "enemy")
-    //    {
-    //        TakeDamage(10); //change to balance
-    //    }
-    //}
 }

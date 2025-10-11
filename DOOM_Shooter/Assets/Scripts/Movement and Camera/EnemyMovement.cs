@@ -54,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(origin, horizontalDir, out hit, distance))
         {
-            if (hit.collider.gameObject == target || hit.collider.tag == "enemy")
+            if ((hit.collider.gameObject == target || hit.collider.tag == "enemy") && distance >= 10)
             {
                 return true;
             }
