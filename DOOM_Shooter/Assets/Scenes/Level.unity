@@ -5019,7 +5019,7 @@ GameObject:
   - component: {fileID: 493799868}
   - component: {fileID: 493799867}
   - component: {fileID: 493799866}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Floor
   m_TagString: level
   m_Icon: {fileID: 0}
@@ -26100,7 +26100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3859943191007048247, guid: 0447d61e21101d24c877e015c094f332, type: 3}
       propertyPath: whatIsGround.m_Bits
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8488993918072693775, guid: 0447d61e21101d24c877e015c094f332, type: 3}
       propertyPath: m_Name
