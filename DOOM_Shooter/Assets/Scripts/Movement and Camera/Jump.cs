@@ -5,7 +5,6 @@ public class Jump : MonoBehaviour
     public float jumpHeight;
     private Rigidbody rb;
     public bool canJump = true;
-    private bool isGrounded;
 
     private void Start()
     {
@@ -15,13 +14,12 @@ public class Jump : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(canJump == true && IsGrounded())
+            if(canJump == true)
             {
                 PlayerJump();
             }
         }
     }
-
     void PlayerJump()
     {
         canJump = false;
@@ -31,13 +29,5 @@ public class Jump : MonoBehaviour
     void ResetJump()
     {
         canJump = true;
-    }
-
-    bool IsGrounded()
-    {
-        if (rb.linearVelocity.y == 0)
-            return true;
-        else
-            return false;
     }
 }
