@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
+        RaycastHit hit;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         if (grounded)
             rb.linearDamping = groundDrag;
