@@ -127,7 +127,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435391979872739406}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e0a31b1210cf74042a6646fc66d97a99, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -543,6 +543,7 @@ MonoBehaviour:
   maxHealth: 100
   minHealth: 0
   currentHealthUI: {fileID: 1450176232186015865}
+  playerCamera: {fileID: 0}
 --- !u!114 &1987875920944542323
 MonoBehaviour:
   m_ObjectHideFlags: 0

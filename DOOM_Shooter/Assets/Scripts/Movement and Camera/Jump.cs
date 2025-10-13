@@ -10,24 +10,32 @@ public class Jump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(canJump == true)
+            if (canJump == true /*&& IsGrounded()*/)  //Uncomment when IsGrounded works properly
             {
                 PlayerJump();
             }
         }
     }
+
     void PlayerJump()
     {
         canJump = false;
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         Invoke("ResetJump", 1f);
     }
+
     void ResetJump()
     {
         canJump = true;
     }
+
+    /*bool IsGrounded()
+    {
+        //Needs some kind of raycast check
+    }*/
 }
