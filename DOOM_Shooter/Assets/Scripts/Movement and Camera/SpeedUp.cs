@@ -16,7 +16,7 @@ public class SpeedUp : MonoBehaviour
     }
     public void IncreaseSpeed()
     {
-        speedBoost += 1;
+        speedBoost += 5;
         Debug.Log("speed increased");
     }
 }

@@ -5,27 +5,26 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public GameObject target;
-    private Vector3 origin = Vector3.zero;
-    private Vector3 dirToTarget = Vector3.zero;
-    private Vector3 horizontalDir = Vector3.zero;
-    private NavMeshAgent navAgent;
+    public Vector3 origin = Vector3.zero;
+    public Vector3 dirToTarget = Vector3.zero;
+    public Vector3 horizontalDir = Vector3.zero;
+    public NavMeshAgent navAgent;
+    public float distance;
     Rigidbody rb;
 
-    private void Awake()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.Find("PlayerObject");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-
-        
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         //Find the position of the enemy
         origin = transform.position;
@@ -39,6 +38,8 @@ public class EnemyMovement : MonoBehaviour
         //Normalize the dirToTarget to get the horizontal direction w/o the y direction
         horizontalDir = dirToTarget.normalized;
 
+        transform.LookAt(target.transform);
+
         //Calls CanSeeTarget to use raycast
         if (CanSeeTarget())
         {
@@ -46,14 +47,14 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    bool CanSeeTarget()
+    public bool CanSeeTarget()
     {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
+        distance = Vector3.Distance(transform.position, target.transform.position);
 
         RaycastHit hit;
         if (Physics.Raycast(origin, horizontalDir, out hit, distance))
         {
-            if (hit.collider.gameObject == target || hit.collider.tag == "enemy")
+            if ((hit.collider.gameObject == target || hit.collider.tag == "enemy") && distance >= 10)
             {
                 return true;
             }

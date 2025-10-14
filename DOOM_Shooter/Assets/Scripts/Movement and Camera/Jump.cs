@@ -4,30 +4,44 @@ public class Jump : MonoBehaviour
 {
     public float jumpHeight;
     private Rigidbody rb;
-    public bool canJump = true;
+    public bool isGrounded = true;
+    public AudioSource jumpAudio;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(canJump == true)
+            if (isGrounded)
             {
                 PlayerJump();
+                if (jumpAudio != null) jumpAudio.Play();
             }
         }
     }
+
     void PlayerJump()
     {
-        canJump = false;
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-        Invoke("ResetJump", 2f);
     }
-    void ResetJump()
+
+    void OnCollisionEnter(Collision collision)
     {
-        canJump = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
