@@ -12,11 +12,14 @@ public class EnemyHealth : MonoBehaviour
     [Header("Outside Refrences")]
     public PlayerMovement playerMovement;
     public PlayerHealth playerHealth;
-    public AudioSource audioSource;
+    public GameObject deathAudioPrefab;
+    public Animator animator;
+    public AudioSource hurtAudio;
 
     private void Start()
     {
         GameObject player = GameObject.Find("Player");
+        animator = GetComponent<Animator>();
         
         if (player != null)
         {
@@ -33,7 +36,26 @@ public class EnemyHealth : MonoBehaviour
         {
             playerMovement.SpeedIncrease();
             Destroy(enemy);
-            audioSource.Play();
+
+            if (animator != null)
+            animator.SetTrigger("IsDead");
+
+            // Spawn and play death sound prefab
+            if (deathAudioPrefab != null)
+            {
+                GameObject audioObj = Instantiate(deathAudioPrefab, transform.position, Quaternion.identity);
+                AudioSource audioSource = audioObj.GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                    Destroy(audioObj, audioSource.clip.length);
+                }
+                else
+                {
+                    Destroy(audioObj, 2f); // fallback destroy
+                }
+            }
+
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -41,9 +63,11 @@ public class EnemyHealth : MonoBehaviour
         if (other.tag == "sword")
         {
             EnemyTakeDamage(5);
+            if (hurtAudio != null) hurtAudio.Play();
         }
         if (other.tag == "Player")
         {
+            animator.SetBool("IsAttacking", true);
             playerHealth.TakeDamage(10);
             
         }
