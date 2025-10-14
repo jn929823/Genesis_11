@@ -8,6 +8,8 @@ TagManager:
   - sword
   - level
   - Ground
+  - Poison
+  - Lava
   layers:
   - Default
   - TransparentFX
