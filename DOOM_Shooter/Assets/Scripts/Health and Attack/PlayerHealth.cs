@@ -13,13 +13,21 @@ public class PlayerHealth : MonoBehaviour
     public int minHealth = 0;
     public Text currentHealthUI;
     public GameObject playerCamera;
+    public Text gameOverText;
+    public Button retryButton;
+    public Button quitButton;
+    public GameObject gameOverScreen;
+    public GameObject notgameOver;
 
     void Start()
     {
+        notgameOver.SetActive(true);
+        gameOverScreen.SetActive(false);
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
 
     }
+
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -28,9 +36,29 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= minHealth)
         {
+
+
             Die();
         }
     }
+
+
+
+
+    private void RestartGame()
+    {
+
+        SceneManager.LoadScene("Level");
+        Debug.Log("Restarted");
+
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("its over");
+    }
+
 
     private IEnumerator CameraFall()
     {
@@ -47,9 +75,23 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private IEnumerator ShowGameOverScreen()
+    {
+        yield return new WaitForSeconds(1f);
+        gameOverScreen.SetActive(true);
+        notgameOver.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        gameOverText.CrossFadeAlpha(1f, 1f, false);
+        retryButton.onClick.AddListener(RestartGame);
+        quitButton.onClick.AddListener(QuitGame);
+    }
+
     void Die()
     {
+
+        StartCoroutine(ShowGameOverScreen());
         GetComponent<PlayerMovement>().enabled = false;
-        StartCoroutine(CameraFall());
+        //StartCoroutine(CameraFall());
     }
 }
