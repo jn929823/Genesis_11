@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public float playerHeight;
-    bool isGrounded;
+    public LayerMask whatIsGround;
+    bool grounded;
 
     public Transform orientation;
 
@@ -45,10 +46,10 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
-        if (isGrounded) 
-        {
+        RaycastHit hit;
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        if (grounded)
             rb.linearDamping = groundDrag;
-        }
         else
             rb.linearDamping = 0;
     }
@@ -79,21 +80,5 @@ public class PlayerMovement : MonoBehaviour
     void SpeedDecrease()
     {
         moveSpeed = moveSpeed -= 1;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }   
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
     }
 }

@@ -4,7 +4,6 @@ public class SwordAttack : MonoBehaviour
 {
     public GameObject sword;
     bool isAttacking;
-    public AudioSource swordAudio;
 
 
 
@@ -39,8 +38,6 @@ public class SwordAttack : MonoBehaviour
     {
         if(other.tag == "enemy")
         {
-            if (swordAudio != null) swordAudio.Play();
-
             // animations and sounds for succesful hit
         }
     }

@@ -5,7 +5,6 @@ public class Jump : MonoBehaviour
     public float jumpHeight;
     private Rigidbody rb;
     public bool canJump = true;
-    public AudioSource jumpAudio;
 
     private void Start()
     {
@@ -19,8 +18,6 @@ public class Jump : MonoBehaviour
             if (canJump == true /*&& IsGrounded()*/)  //Uncomment when IsGrounded works properly
             {
                 PlayerJump();
-                if (jumpAudio != null) jumpAudio.Play();
-
             }
         }
     }
