@@ -4,7 +4,7 @@ public class Jump : MonoBehaviour
 {
     public float jumpHeight;
     private Rigidbody rb;
-    public bool canJump = true;
+    public bool isGrounded = true;
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public class Jump : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (canJump == true /*&& IsGrounded()*/)  //Uncomment when IsGrounded works properly
+            if (isGrounded)
             {
                 PlayerJump();
             }
@@ -24,18 +24,22 @@ public class Jump : MonoBehaviour
 
     void PlayerJump()
     {
-        canJump = false;
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-        Invoke("ResetJump", 1f);
     }
 
-    void ResetJump()
+    void OnCollisionEnter(Collision collision)
     {
-        canJump = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 
-    /*bool IsGrounded()
+    void OnCollisionExit(Collision collision)
     {
-        //Needs some kind of raycast check
-    }*/
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
 }
