@@ -5,6 +5,7 @@ public class Parry : MonoBehaviour
     public PlayerHealth health;
     
     public bool isParrying;
+    public AudioSource parryAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,8 @@ public class Parry : MonoBehaviour
     void ParryStart()
     {
         isParrying = true;
+        if (parryAudio != null) parryAudio.Play();
+
         // disable attack
         Invoke("ResetParry", 2f);
         Invoke("ParryCooldown", 5f);

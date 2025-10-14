@@ -2656,6 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   isParrying: 0
+  parryAudio: {fileID: 1769894490}
 --- !u!1 &343881605
 GameObject:
   m_ObjectHideFlags: 0
@@ -39688,6 +39689,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!82 &1769894490 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2421220233599511733, guid: 0447d61e21101d24c877e015c094f332, type: 3}
+  m_PrefabInstance: {fileID: 1306991034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1770101186
 GameObject:
   m_ObjectHideFlags: 0
