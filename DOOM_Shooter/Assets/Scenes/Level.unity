@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 148448408}
   m_Layer: 0
   m_Name: Up Floor (1)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2006,7 +2006,7 @@ GameObject:
   - component: {fileID: 271863852}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2635,7 +2635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 5
-  canJump: 1
+  isGrounded: 1
   jumpAudio: {fileID: 333207895}
 --- !u!82 &333207895 stripped
 AudioSource:
@@ -9210,7 +9210,7 @@ GameObject:
   - component: {fileID: 681554167}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16242,7 +16242,7 @@ GameObject:
   - component: {fileID: 937713662}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17007,7 +17007,7 @@ GameObject:
   - component: {fileID: 974086628}
   m_Layer: 0
   m_Name: Cylinder (1)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17565,7 +17565,7 @@ GameObject:
   - component: {fileID: 1031194373}
   m_Layer: 0
   m_Name: Rot Floor
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21923,7 +21923,7 @@ GameObject:
   - component: {fileID: 1263689529}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26671,7 +26671,7 @@ GameObject:
   - component: {fileID: 1340031832}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27673,7 +27673,7 @@ GameObject:
   - component: {fileID: 1398940240}
   m_Layer: 0
   m_Name: Cube (8)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30200,7 +30200,7 @@ GameObject:
   - component: {fileID: 1477783532}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32776,7 +32776,7 @@ GameObject:
   - component: {fileID: 1511775081}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33605,7 +33605,7 @@ GameObject:
   - component: {fileID: 1559566589}
   m_Layer: 0
   m_Name: Cylinder (2)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34273,7 +34273,7 @@ GameObject:
   - component: {fileID: 1615892379}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35419,7 +35419,7 @@ GameObject:
   - component: {fileID: 1620098393}
   m_Layer: 0
   m_Name: Slope
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35866,7 +35866,7 @@ GameObject:
   - component: {fileID: 1626623183}
   m_Layer: 0
   m_Name: Cylinder (3)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39429,7 +39429,7 @@ GameObject:
   - component: {fileID: 1767822455}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56320,7 +56320,7 @@ GameObject:
   - component: {fileID: 1802839986}
   m_Layer: 0
   m_Name: Up Floor
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58707,7 +58707,7 @@ GameObject:
   - component: {fileID: 1946515003}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59731,7 +59731,7 @@ GameObject:
   - component: {fileID: 1988761015}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: level
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
