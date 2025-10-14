@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 148448408}
   m_Layer: 0
   m_Name: Up Floor (1)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 271863852}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1878,27 +1878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 5
-  isGrounded: 1
-  jumpAudio: {fileID: 333207895}
---- !u!82 &333207895 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7410283483894233215, guid: 0447d61e21101d24c877e015c094f332, type: 3}
-  m_PrefabInstance: {fileID: 1306991034}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &333207896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333207882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c3bafe14eb5f57498c6ab7866627dab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  isParrying: 0
+  canJump: 1
 --- !u!1 &343881605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7910,7 +7890,7 @@ GameObject:
   - component: {fileID: 681554167}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14889,7 +14869,7 @@ GameObject:
   - component: {fileID: 937713662}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15424,7 +15404,7 @@ GameObject:
   - component: {fileID: 974086631}
   m_Layer: 0
   m_Name: Cylinder (1)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16085,7 +16065,7 @@ GameObject:
   - component: {fileID: 1031194373}
   m_Layer: 0
   m_Name: Rot Floor
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16568,127 +16548,6 @@ MeshFilter:
   m_GameObject: {fileID: 1066274287}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1080177776 stripped
---- !u!1 &1072309651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8507206975411607411, guid: 0447d61e21101d24c877e015c094f332, type: 3}
-  m_PrefabInstance: {fileID: 1306991034}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1072309656
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072309651}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1791660749272153643, guid: 8ece39ab146dd6540b024419e63a9cd0, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 85d8217807580a54f885d4dee0457594, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!1 &1080177775
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1080177776}
-  - component: {fileID: 1080177778}
-  - component: {fileID: 1080177777}
-  m_Layer: 0
-  m_Name: Torch (11)
-  m_TagString: level
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1080177776
 Transform:
   m_CorrespondingSourceObject: {fileID: 8540018394750096636, guid: 451a85baae47b4540b2b9f89a967767f, type: 3}
   m_PrefabInstance: {fileID: 498657170}
@@ -20523,7 +20382,7 @@ GameObject:
   - component: {fileID: 1263689529}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24848,12 +24707,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8488993918072693775, guid: 0447d61e21101d24c877e015c094f332, type: 3}
       insertIndex: 3
       addedObject: {fileID: 333207888}
-    - targetCorrespondingSourceObject: {fileID: 8488993918072693775, guid: 0447d61e21101d24c877e015c094f332, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 333207896}
-    - targetCorrespondingSourceObject: {fileID: 8507206975411607411, guid: 0447d61e21101d24c877e015c094f332, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1072309656}
   m_SourcePrefab: {fileID: 100100000, guid: 0447d61e21101d24c877e015c094f332, type: 3}
 --- !u!1001 &1310599263
 PrefabInstance:
@@ -25251,7 +25104,7 @@ GameObject:
   - component: {fileID: 1340031832}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26192,7 +26045,7 @@ GameObject:
   - component: {fileID: 1398940240}
   m_Layer: 0
   m_Name: Cube (8)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28369,7 +28222,7 @@ GameObject:
   - component: {fileID: 1477783532}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30824,7 +30677,7 @@ GameObject:
   - component: {fileID: 1511775081}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31478,7 +31331,7 @@ GameObject:
   - component: {fileID: 1559566589}
   m_Layer: 0
   m_Name: Cylinder (2)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32201,7 +32054,7 @@ GameObject:
   - component: {fileID: 1615892379}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33404,7 +33257,7 @@ GameObject:
   - component: {fileID: 1620098393}
   m_Layer: 0
   m_Name: Slope
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33817,7 +33670,7 @@ GameObject:
   - component: {fileID: 1626623186}
   m_Layer: 0
   m_Name: Cylinder (3)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37289,7 +37142,7 @@ GameObject:
   - component: {fileID: 1767822455}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54230,7 +54083,7 @@ GameObject:
   - component: {fileID: 1802839986}
   m_Layer: 0
   m_Name: Up Floor
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56557,7 +56410,7 @@ GameObject:
   - component: {fileID: 1946515003}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57640,7 +57493,7 @@ GameObject:
   - component: {fileID: 1988761018}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Ground
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
