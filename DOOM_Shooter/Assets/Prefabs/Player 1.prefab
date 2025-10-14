@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619ec241b65db8d4d93c91b3a19b76cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 10
+  jumpHeight: 7
   isGrounded: 1
   jumpAudio: {fileID: 7410283483894233215}
 --- !u!114 &7795950845384402479
