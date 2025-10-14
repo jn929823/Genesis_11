@@ -15,9 +15,10 @@ public class PlayerHealth : MonoBehaviour
     public GameObject playerCamera;
     public Text gameOverText;
     public Button retryButton;
-    public Button quitButton;
     public GameObject gameOverScreen;
     public GameObject notgameOver;
+    public AudioSource hitsoundAudio;
+    public AudioSource gameOverAudio;
 
     void Start()
     {
@@ -31,12 +32,14 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        if (hitsoundAudio != null) hitsoundAudio.Play();
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealthUI.text = $"{currentHealth}";
 
         if (currentHealth <= minHealth)
         {
 
+            if (gameOverAudio != null) gameOverAudio.Play();
 
             Die();
         }
@@ -47,16 +50,21 @@ public class PlayerHealth : MonoBehaviour
 
     private void RestartGame()
     {
-
-        SceneManager.LoadScene("Level");
-        Debug.Log("Restarted");
+        if (Input.GetKey(KeyCode.Y))
+        {
+            SceneManager.LoadScene("Level");
+            Debug.Log("Restarted");
+        }
 
     }
 
     private void QuitGame()
     {
-        Application.Quit();
-        Debug.Log("its over");
+        if (Input.GetKey(KeyCode.N))
+        {
+            Application.Quit();
+            Debug.Log("its over");
+        }
     }
 
 
@@ -84,7 +92,6 @@ public class PlayerHealth : MonoBehaviour
         Cursor.visible = true;
         gameOverText.CrossFadeAlpha(1f, 1f, false);
         retryButton.onClick.AddListener(RestartGame);
-        quitButton.onClick.AddListener(QuitGame);
     }
 
     void Die()

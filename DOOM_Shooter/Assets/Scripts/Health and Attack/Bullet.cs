@@ -12,8 +12,11 @@ public class Bullet : MonoBehaviour
 
     public PlayerHealth playerHealth;
 
+    public AudioSource bulletAudio;
+
     void Start()
     {
+        if (bulletAudio != null) bulletAudio.Play();
         player = GameObject.Find("Player");
         playerObject = GameObject.Find("PlayerObject");
         rb = GetComponent<Rigidbody>();
