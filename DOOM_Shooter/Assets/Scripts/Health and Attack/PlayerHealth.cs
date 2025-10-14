@@ -92,6 +92,6 @@ public class PlayerHealth : MonoBehaviour
 
         StartCoroutine(ShowGameOverScreen());
         GetComponent<PlayerMovement>().enabled = false;
-        StartCoroutine(CameraFall());
+        //StartCoroutine(CameraFall());
     }
 }
