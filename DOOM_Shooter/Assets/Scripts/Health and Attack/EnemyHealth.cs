@@ -15,9 +15,16 @@ public class EnemyHealth : MonoBehaviour
     public GameObject deathAudioPrefab;
     public Animator animator;
     public AudioSource hurtAudio;
+    public SpriteRenderer idleSprite;
+    public SpriteRenderer attackSprite;
+    public SpriteRenderer hurtSprite;
+    float timePassed = 0f;
 
     private void Start()
     {
+        idleSprite.enabled = true;
+        attackSprite.enabled = false;
+        hurtSprite.enabled = false;
         GameObject player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
         
@@ -64,11 +71,30 @@ public class EnemyHealth : MonoBehaviour
         {
             EnemyTakeDamage(5);
             if (hurtAudio != null) hurtAudio.Play();
+            idleSprite.enabled = false;
+            attackSprite.enabled = false;
+            hurtSprite.enabled = true;
+            if(timePassed > 1f)
+            {
+                idleSprite.enabled = true;
+                attackSprite.enabled = false;
+                hurtSprite.enabled = false;
+            }
         }
         if (other.tag == "Player")
         {
             animator.SetBool("IsAttacking", true);
+            idleSprite.enabled = false;
+            attackSprite.enabled = true;
+            hurtSprite.enabled = false;
             playerHealth.TakeDamage(10);
+            if(timePassed > 1f)
+            {
+                idleSprite.enabled = true;
+                attackSprite.enabled = false;
+                hurtSprite.enabled = false;
+            }
+            
         }
     }
     void EnemyTakeDamage(float amount)

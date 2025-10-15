@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 707f476040f2e554db4636aeb26a08af
+guid: e33c518056cb96d41a4e5a1325679734
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: G11_Bandage_0
+      name: Xythis_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 75
-        width: 470
-        height: 355
+        x: 56
+        y: 80
+        width: 400
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc06c3b1be31f9846860b4a23c275f12
-      internalID: -305160790
+      spriteID: d215708f648b87247ab29be015ad2fd6
+      internalID: 696898885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Xythis_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 76
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8da9bfd502c35498145db10767120a
+      internalID: -1756420713
       vertices: []
       indices: 
       edges: []
@@ -122,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37c2366e7797ee04d9a9a290a6cf0013
+    spriteID: ed49d0db34e435345866d1335c840c75
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +154,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      G11_Bandage_0: -305160790
+      Xythis_0: 696898885
+      Xythis_1: -1756420713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
