@@ -10,6 +10,13 @@ TagManager:
   - Ground
   - Poison
   - Lava
+  - GreenKey
+  - RedKey
+  - GreenDoor
+  - RedDoor
+  - YellowDoor
+  - YellowKey
+  - RedDoorClose
   layers:
   - Default
   - TransparentFX

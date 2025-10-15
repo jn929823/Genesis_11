@@ -2,34 +2,37 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-    private bool nearDoor;
+    public GameObject greenDoor;
+    public GameObject yellowDoor;
+    public GameObject redDoor;
+
+    private Keys keys;
 
     private void Start()
     {
-        nearDoor = false;
+        keys = GetComponent<Keys>();
     }
-    private void Update()
-    {
-        if (nearDoor == true)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                //play animation to open door
-            }
-        }
-    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("GreenDoor") && keys.haveGreenKey)
         {
-            nearDoor = true;
+            greenDoor.SetActive(false);
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
+
+        if (other.CompareTag("YellowDoor") && keys.haveYellowKey)
         {
-            nearDoor = false;
+            yellowDoor.SetActive(false);
+        }
+
+        if (other.CompareTag("RedDoor") && keys.haveRedKey)
+        {
+            redDoor.SetActive(false);
+        }
+
+        if (other.CompareTag("RedDoorClose"))
+        {
+            redDoor.SetActive(true);
         }
     }
 }
