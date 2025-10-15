@@ -18,11 +18,12 @@ public class PlayerHealth : MonoBehaviour
     public Button quitButton;
     public GameObject gameOverScreen;
     public GameObject notgameOver;
+    public AudioSource hitsoundAudio;
+    public AudioSource gameOverAudio;
 
     //Poison Dmg/Time
     private float damageInterval = 0.75f;
     private float nextDamageTick;
-
 
     void Start()
     {
@@ -36,11 +37,14 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        if (hitsoundAudio != null) hitsoundAudio.Play();
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealthUI.text = $"{currentHealth}";
 
         if (currentHealth <= minHealth)
         {
+            if (gameOverAudio != null) gameOverAudio.Play();
+
             Die();
         }
     }
@@ -68,10 +72,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void RestartGame()
     {
-
         SceneManager.LoadScene("Level");
         Debug.Log("Restarted");
-
     }
 
     private void QuitGame()

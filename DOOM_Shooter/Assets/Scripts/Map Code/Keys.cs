@@ -3,34 +3,44 @@ using UnityEngine;
 
 public class Keys : MonoBehaviour
 {
+    //Parkour Key
     [Header("Green Key")]
     public bool haveGreenKey;
     public GameObject greenKey;
-    [Header("Blue Key")]
-    public bool haveBlueKey;
-    public GameObject blueKey;
+    GameObject greenDoor;
+
+    //Maze Key
+    [Header("Yellow Key")]
+    public bool haveYellowKey;
+    public GameObject yellowKey;
+    GameObject yellowDoor;
+
+    //Boss Key
     [Header("Red Key")]
     public bool haveRedKey;
     public GameObject redKey;
+    GameObject redDoor;
+    
     void Start()
     {
         haveGreenKey = false;
-        haveBlueKey = false;
-        haveRedKey = false;
+        haveYellowKey = false;
+        haveRedKey = true;
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (tag.Contains("GreenKey"))
+        if (other.CompareTag("GreenKey"))
         {
             greenKey.SetActive(false);
             haveGreenKey = true;
         }
-        if (tag.Contains("BlueKey"))
+        if (other.CompareTag("YellowKey"))
         {
-            blueKey.SetActive(false);
-            haveBlueKey = true;
+            yellowKey.SetActive(false);
+            haveYellowKey = true;
         }
-        if (tag.Contains("RedKey"))
+        if (other.CompareTag("RedKey"))
         {
             redKey.SetActive(false);
             haveRedKey = true;

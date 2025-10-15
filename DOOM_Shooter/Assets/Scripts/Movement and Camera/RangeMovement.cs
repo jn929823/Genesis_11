@@ -10,7 +10,7 @@ public class RangeMovement : MonoBehaviour
     public Vector3 horizontalDir = Vector3.zero;
     public NavMeshAgent navAgent;
     public float distance;
-    public float stoppingDistance = 10f;
+    public float stoppingDistance = 15f;
     Rigidbody rb;
 
     public GameObject bullet;
@@ -94,7 +94,7 @@ public class RangeMovement : MonoBehaviour
     {
         Vector3 flatDirToTarget = new Vector3(dirToTarget.x, 0, dirToTarget.z).normalized;
 
-        if (CanSeeTarget() && distance <= 15)
+        if (CanSeeTarget() && distance <= 25)
         {
             return true;
         }
