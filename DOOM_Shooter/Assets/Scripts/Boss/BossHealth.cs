@@ -63,7 +63,7 @@ public class BossHealth : MonoBehaviour
     {
         if (other.tag == "sword")
         {
-            BossTakeDamage(5);
+            BossTakeDamage(1);
             if (hurtAudio != null) hurtAudio.Play();
         }
         if (other.tag == "Player")
