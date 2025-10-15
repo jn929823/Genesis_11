@@ -21,13 +21,17 @@ public class PlayerHealth : MonoBehaviour
     public AudioSource hitsoundAudio;
     public AudioSource gameOverAudio;
 
+    //Poison Dmg/Time
+    private float damageInterval = 0.75f;
+    private float nextDamageTick;
+
     void Start()
     {
         notgameOver.SetActive(true);
         gameOverScreen.SetActive(false);
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-
+        nextDamageTick = Time.time;
     }
 
     public void TakeDamage(int amount)
@@ -39,31 +43,43 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= minHealth)
         {
-
             if (gameOverAudio != null) gameOverAudio.Play();
 
             Die();
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Poison"))
+        {
+            if (Time.time >= nextDamageTick)
+            {
+                TakeDamage(2);
 
+                nextDamageTick = Time.time + damageInterval;
+            }
+        }
+    }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Lava"))
+        {
+            TakeDamage(10000);
+        }
+    }
 
     private void RestartGame()
     {
-        
         SceneManager.LoadScene("Level");
         Debug.Log("Restarted");
-        
-
     }
 
     private void QuitGame()
     {
-        
         Application.Quit();
         Debug.Log("its over");
-        
     }
 
 
