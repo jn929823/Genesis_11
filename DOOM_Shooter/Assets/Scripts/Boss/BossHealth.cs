@@ -16,9 +16,14 @@ public class BossHealth : MonoBehaviour
     public GameObject deathAudioPrefab;
     public Animator animator;
     public AudioSource hurtAudio;
+    public GameObject heavensLight;
 
     private void Start()
     {
+        if (heavensLight != null)
+        {
+            heavensLight.SetActive(false);
+        }
         GameObject player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
 
@@ -37,6 +42,10 @@ public class BossHealth : MonoBehaviour
         {
             playerMovement.SpeedIncrease();
             Destroy(Boss);
+            if (heavensLight != null)
+            {
+                heavensLight.SetActive(true);
+            }
 
             if (animator != null)
                 animator.SetTrigger("IsDead");
