@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.AI;
 
 public class RangeMovement : MonoBehaviour
@@ -12,6 +11,7 @@ public class RangeMovement : MonoBehaviour
     public float distance;
     public float stoppingDistance = 15f;
     Rigidbody rb;
+    public Sprite damageSprite;
 
     public GameObject bullet;
     public float rateOfFire = 0.5f;
