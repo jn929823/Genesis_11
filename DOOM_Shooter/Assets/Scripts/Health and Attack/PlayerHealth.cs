@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject playerCamera;
     public Text gameOverText;
     public Button retryButton;
+    public Button quitButton;
     public GameObject gameOverScreen;
     public GameObject notgameOver;
     public AudioSource hitsoundAudio;
@@ -50,21 +51,19 @@ public class PlayerHealth : MonoBehaviour
 
     private void RestartGame()
     {
-        if (Input.GetKey(KeyCode.Y))
-        {
-            SceneManager.LoadScene("Level");
-            Debug.Log("Restarted");
-        }
+        
+        SceneManager.LoadScene("Level");
+        Debug.Log("Restarted");
+        
 
     }
 
     private void QuitGame()
     {
-        if (Input.GetKey(KeyCode.N))
-        {
-            Application.Quit();
-            Debug.Log("its over");
-        }
+        
+        Application.Quit();
+        Debug.Log("its over");
+        
     }
 
 
@@ -92,6 +91,7 @@ public class PlayerHealth : MonoBehaviour
         Cursor.visible = true;
         gameOverText.CrossFadeAlpha(1f, 1f, false);
         retryButton.onClick.AddListener(RestartGame);
+        quitButton.onClick.AddListener(QuitGame);
     }
 
     void Die()
