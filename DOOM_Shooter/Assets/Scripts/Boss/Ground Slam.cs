@@ -70,7 +70,8 @@ public class GroundSlam : MonoBehaviour
     void GroundSlamAttack()
     {
         // end squish animation
-        boss.AddForce(Vector3.up * 2, ForceMode.Impulse);//Change the two if boss jump needs adjusting
+        boss.AddForce(Vector3.up * 15, ForceMode.Impulse);//Change the two if boss jump needs adjusting
+        boss.linearVelocity = Vector3.up * 15;
         airborne = true;
     }
     void StartSlam()
