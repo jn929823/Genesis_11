@@ -25,7 +25,7 @@ public class Keys : MonoBehaviour
     {
         haveGreenKey = false;
         haveYellowKey = false;
-        haveRedKey = false;
+        haveRedKey = true;
     }
 
     private void OnTriggerEnter(Collider other)
