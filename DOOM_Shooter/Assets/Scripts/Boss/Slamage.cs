@@ -4,21 +4,27 @@ public class Slamage : MonoBehaviour
 {
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public PlayerHealth playerHealth;
+    PlayerHealth playerHealth;
+    GameObject player;
 
-    //private void Start()
-    //{
-    //    GameObject player = GameObject.Find("Player");
+    Rigidbody rb;
 
-    //    if (player != null)
-    //    {
-    //        playerHealth = player.GetComponent<PlayerHealth>();
-    //    }
-    //}
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
 
-    public void OnTriggerEnter(Collider other)
+        player = GameObject.Find("Player");
+
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTrigger");
+
         if (other.tag == "Player")
         {
             Debug.Log("PreDamage");

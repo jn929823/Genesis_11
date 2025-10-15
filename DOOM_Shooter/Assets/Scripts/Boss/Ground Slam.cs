@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GroundSlam : MonoBehaviour
@@ -8,6 +9,8 @@ public class GroundSlam : MonoBehaviour
     public GameObject player;
     [Header("bools")]
     bool isSlamming;
+    bool isGrounded;
+    bool airborne;
     [Header("Outside Refrences")]
     PlayerHealth playerHealth;
     public BossMovement bossMovement;
@@ -20,6 +23,7 @@ public class GroundSlam : MonoBehaviour
         boss = GetComponent<Rigidbody>();
         GameObject player = GameObject.Find("Player");
         isSlamming = false;
+        airborne = false;
 
         if (player != null)
         {
@@ -34,15 +38,28 @@ public class GroundSlam : MonoBehaviour
             Squish();
             Debug.Log("If Statement");
         }
+
+        if (isGrounded == true && airborne == true)
+        {
+            airborne = false;
+            StartSlam();
+        }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "Player")
-    //    {
-    //        playerHealth.TakeDamage(50);
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
     void Squish()
     {
         isSlamming = true;
@@ -53,10 +70,14 @@ public class GroundSlam : MonoBehaviour
     void GroundSlamAttack()
     {
         // end squish animation
-        // boss.AddForce(Vector3.up * 2, ForceMode.Impulse);  //Change the two if boss jump needs adjusting
+        boss.AddForce(Vector3.up * 2, ForceMode.Impulse);//Change the two if boss jump needs adjusting
+        airborne = true;
+    }
+    void StartSlam()
+    {
         hitbox.SetActive(true);
         Debug.Log("Slammed");
-        EndSlam();
+        Invoke("EndSlam", 0.1f);
     }
     void EndSlam()
     {
