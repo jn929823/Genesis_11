@@ -1,17 +1,18 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
     [Header("GameObjects")]
     Rigidbody rb;
-    public GameObject enemy;
+    public GameObject Boss;
     [Header("Health Floats")]
-    public float currentEnemyHealth;
-    public float maxEnemyHealth = 10;
-    public float minEnemyHealth = 0;
+    public float currentBossHealth;
+    public float maxBossHealth = 100;
+    public float minBossHealth = 0;
     [Header("Outside Refrences")]
     public PlayerMovement playerMovement;
     public PlayerHealth playerHealth;
+    [Header("Animation & Sound")]
     public GameObject deathAudioPrefab;
     public Animator animator;
     public AudioSource hurtAudio;
@@ -20,25 +21,25 @@ public class EnemyHealth : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
-        
+
         if (player != null)
         {
             playerHealth = player.GetComponent<PlayerHealth>();
             playerMovement = player.GetComponent<PlayerMovement>();
         }
-        
+
         rb = GetComponent<Rigidbody>();
-        currentEnemyHealth = maxEnemyHealth;
+        currentBossHealth = maxBossHealth;
     }
     private void Update()
     {
-        if (currentEnemyHealth == 0) 
+        if (currentBossHealth == 0)
         {
             playerMovement.SpeedIncrease();
-            Destroy(enemy);
+            Destroy(Boss);
 
             if (animator != null)
-            animator.SetTrigger("IsDead");
+                animator.SetTrigger("IsDead");
 
             // Spawn and play death sound prefab
             if (deathAudioPrefab != null)
@@ -62,7 +63,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.tag == "sword")
         {
-            EnemyTakeDamage(5);
+            BossTakeDamage(5);
             if (hurtAudio != null) hurtAudio.Play();
         }
         if (other.tag == "Player")
@@ -71,9 +72,9 @@ public class EnemyHealth : MonoBehaviour
             playerHealth.TakeDamage(10);
         }
     }
-    void EnemyTakeDamage(float amount)
+    void BossTakeDamage(float amount)
     {
-        currentEnemyHealth -= amount;
-        currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+        currentBossHealth -= amount;
+        currentBossHealth = Mathf.Clamp(currentBossHealth, 0, maxBossHealth);
     }
 }

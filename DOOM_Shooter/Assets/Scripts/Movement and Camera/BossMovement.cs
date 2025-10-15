@@ -104,6 +104,18 @@ public class BossMovement : MonoBehaviour
             return false;
     }
 
+    public bool GroundSlamable()
+    {
+        Vector3 flatDirToTarget = new Vector3(dirToTarget.x, 0, dirToTarget.z).normalized;
+
+        if (CanSeeTarget() && distance <= 50)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
