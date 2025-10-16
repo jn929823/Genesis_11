@@ -16,10 +16,15 @@ public class GroundSlam : MonoBehaviour
     public BossMovement bossMovement;
     [Header("Animation")]
     public Animator animator;
-    GameObject pentagram;
+    public GameObject pentagram;
+    public SpriteRenderer idlingSprite;
+    public SpriteRenderer hurtSprite;
+    public SpriteRenderer squishSprite;
+    public SpriteRenderer pentagramSprite;
 
     void Start()
     {
+        Idles();
         pentagram.SetActive(false);
         hitbox.SetActive(false);
         boss = GetComponent<Rigidbody>();
@@ -40,12 +45,6 @@ public class GroundSlam : MonoBehaviour
             Squish();
             Debug.Log("If Statement");
         }
-
-        if (isGrounded == true && airborne == true)
-        {
-            airborne = false;
-            StartSlam();
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,23 +64,19 @@ public class GroundSlam : MonoBehaviour
     void Squish()
     {
         isSlamming = true;
-        // squish annimation last 4 seconds
-
+        idlingSprite.enabled = false;
+        squishSprite.enabled = true;
+        hurtSprite.enabled = false;
+        pentagramSprite.enabled = true;
         pentagram.SetActive(true);
-        Invoke("GroundSlamAttack", 4f);
+        Invoke("StartSlam", 4f);
         Debug.Log("Squished");
-    }
-    void GroundSlamAttack()
-    {
-        // end squish animation
-        boss.AddForce(Vector3.up * 15, ForceMode.Impulse);//Change the two if boss jump needs adjusting
-        boss.linearVelocity = Vector3.up * 15;
-        airborne = true;
     }
     void StartSlam()
     {
         pentagram.SetActive(false);
         hitbox.SetActive(true);
+        Idles();
         Debug.Log("Slammed");
         Invoke("EndSlam", 0.1f);
     }
@@ -90,5 +85,14 @@ public class GroundSlam : MonoBehaviour
         hitbox.SetActive(false);
         isSlamming = false;
         Debug.Log("Done");
+    }
+
+    public void Idles()
+    {
+        idlingSprite.enabled = true;
+        squishSprite.enabled = false;
+        hurtSprite.enabled = false;
+        pentagramSprite.enabled = false;
+
     }
 }

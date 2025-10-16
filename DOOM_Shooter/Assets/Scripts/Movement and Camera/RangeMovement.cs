@@ -94,7 +94,7 @@ public class RangeMovement : MonoBehaviour
     {
         Vector3 flatDirToTarget = new Vector3(dirToTarget.x, 0, dirToTarget.z).normalized;
 
-        if (CanSeeTarget() && distance <= 25)
+        if (CanSeeTarget() && distance <= 40)
         {
             return true;
         }

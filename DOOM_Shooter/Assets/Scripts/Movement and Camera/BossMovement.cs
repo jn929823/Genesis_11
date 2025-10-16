@@ -29,8 +29,7 @@ public class BossMovement : MonoBehaviour
         target = GameObject.Find("PlayerObject");
         rb = GetComponent<Rigidbody>();
     }
-
-    void Update()
+    public void FixedUpdate()
     {
         if (shootTimer > 0)
             shootTimer -= Time.deltaTime;
@@ -44,15 +43,11 @@ public class BossMovement : MonoBehaviour
 
                 GameObject newBullet = Instantiate(bullet);
 
-                newBullet.transform.position = transform.position;
+                newBullet.transform.position = new Vector3(transform.position.x, 15f, transform.position.z);
 
                 newBullet.GetComponent<Bullet>().SetVelocity(dirToTarget);
             }
         }
-    }
-
-    public void FixedUpdate()
-    {
         //Find the position of the enemy
         origin = transform.position;
 
@@ -96,7 +91,7 @@ public class BossMovement : MonoBehaviour
     {
         Vector3 flatDirToTarget = new Vector3(dirToTarget.x, 0, dirToTarget.z).normalized;
 
-        if (CanSeeTarget() && distance <= 50)
+        if (CanSeeTarget() && distance <= 50 && distance > 20)
         {
             return true;
         }
@@ -108,7 +103,7 @@ public class BossMovement : MonoBehaviour
     {
         Vector3 flatDirToTarget = new Vector3(dirToTarget.x, 0, dirToTarget.z).normalized;
 
-        if (CanSeeTarget() && distance <= 50)
+        if (CanSeeTarget() && distance <= 20)
         {
             return true;
         }

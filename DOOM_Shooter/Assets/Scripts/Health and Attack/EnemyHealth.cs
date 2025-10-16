@@ -18,14 +18,10 @@ public class EnemyHealth : MonoBehaviour
     public SpriteRenderer idleSprite;
     public SpriteRenderer attackSprite;
     public SpriteRenderer hurtSprite;
-    float timePassed = 0f;
 
     private void Start()
     {
         Idle();
-        idleSprite.enabled = true;
-        attackSprite.enabled = false;
-        hurtSprite.enabled = false;
         GameObject player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
         
@@ -71,12 +67,11 @@ public class EnemyHealth : MonoBehaviour
         if (other.tag == "sword")
         {
             EnemyTakeDamage(5);
+            idleSprite.enabled = false;
+            attackSprite.enabled = false;
+            hurtSprite.enabled = true;
             if (hurtAudio != null) hurtAudio.Play();
-            if (timePassed > 1f)
-            {
-                Idle();
-                timePassed = 0f;
-            }
+            Invoke("Idle", 1f);
         }
         if (other.tag == "Player")
         {
@@ -85,11 +80,7 @@ public class EnemyHealth : MonoBehaviour
             attackSprite.enabled = true;
             hurtSprite.enabled = false;
             playerHealth.TakeDamage(10);
-            if(timePassed > 1f)
-            {
-                Idle();
-                timePassed = 0f;
-            }
+            Invoke("Idle", 1f);
             
         }
     }

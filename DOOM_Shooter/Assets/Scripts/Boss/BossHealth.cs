@@ -1,4 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+using System.Collections;
+
 
 public class BossHealth : MonoBehaviour
 {
@@ -17,9 +22,15 @@ public class BossHealth : MonoBehaviour
     public Animator animator;
     public AudioSource hurtAudio;
     public GameObject heavensLight;
+    public SpriteRenderer idlingSprite;
+    public SpriteRenderer hurtSprite;
+    public SpriteRenderer squishSprite;
+    float timePassed = 0f;
+
 
     private void Start()
     {
+        Idles();
         if (heavensLight != null)
         {
             heavensLight.SetActive(false);
@@ -74,6 +85,11 @@ public class BossHealth : MonoBehaviour
         {
             BossTakeDamage(5);
             if (hurtAudio != null) hurtAudio.Play();
+            idlingSprite.enabled = false;
+            squishSprite.enabled = false;
+            hurtSprite.enabled = true;
+            Invoke("Idles", 1f);
+
         }
         if (other.tag == "Player")
         {
@@ -85,5 +101,13 @@ public class BossHealth : MonoBehaviour
     {
         currentBossHealth -= amount;
         currentBossHealth = Mathf.Clamp(currentBossHealth, 0, maxBossHealth);
+    }
+
+    public void Idles()
+    {
+        idlingSprite.enabled = true;
+        squishSprite.enabled = false;
+        hurtSprite.enabled = false;
+
     }
 }

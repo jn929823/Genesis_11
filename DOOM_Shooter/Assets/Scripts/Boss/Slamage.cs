@@ -28,7 +28,7 @@ public class Slamage : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("PreDamage");
-            playerHealth.TakeDamage(50);
+            playerHealth.TakeDamage(20);
             Debug.Log("Damage");
         }
     }

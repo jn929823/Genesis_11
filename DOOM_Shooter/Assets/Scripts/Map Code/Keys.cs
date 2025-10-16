@@ -20,12 +20,14 @@ public class Keys : MonoBehaviour
     public bool haveRedKey;
     public GameObject redKey;
     GameObject redDoor;
+
+    public AudioSource keySound;
     
     void Start()
     {
         haveGreenKey = false;
         haveYellowKey = false;
-        haveRedKey = true;
+        haveRedKey = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,16 +36,20 @@ public class Keys : MonoBehaviour
         {
             greenKey.SetActive(false);
             haveGreenKey = true;
+            if (keySound != null) keySound.Play();
         }
         if (other.CompareTag("YellowKey"))
         {
             yellowKey.SetActive(false);
             haveYellowKey = true;
+            if (keySound != null) keySound.Play();
+
         }
         if (other.CompareTag("RedKey"))
         {
             redKey.SetActive(false);
             haveRedKey = true;
+            if (keySound != null) keySound.Play();
         }
     }
 }
