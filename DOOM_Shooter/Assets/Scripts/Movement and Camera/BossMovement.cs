@@ -18,7 +18,7 @@ public class BossMovement : MonoBehaviour
     public float stoppingDistance = 30f; //Make this equal to the distance where the boss does a slam attack
 
     public GameObject bullet;
-    public float rateOfFire = 0.5f;
+    public float rateOfFire = 0.3f;
     private float shootTimer = 0;
 
     public void Start()

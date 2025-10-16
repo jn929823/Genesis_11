@@ -2829,7 +2829,7 @@ GameObject:
   - component: {fileID: 3018961723446330665}
   - component: {fileID: 4539176914618462806}
   - component: {fileID: 3859943191007048247}
-  - component: {fileID: 120372866752754639}
+  - component: {fileID: 7409106757365986197}
   - component: {fileID: 7795950845384402479}
   - component: {fileID: 1987875920944542323}
   - component: {fileID: 8011129945039642135}
@@ -2904,7 +2904,7 @@ MonoBehaviour:
   groundDrag: 2
   playerHeight: 4
   orientation: {fileID: 5108627718502574995}
---- !u!114 &120372866752754639
+--- !u!114 &7409106757365986197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
