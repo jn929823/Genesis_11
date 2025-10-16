@@ -16,9 +16,11 @@ public class GroundSlam : MonoBehaviour
     public BossMovement bossMovement;
     [Header("Animation")]
     public Animator animator;
+    GameObject pentagram;
 
     void Start()
     {
+        pentagram.SetActive(false);
         hitbox.SetActive(false);
         boss = GetComponent<Rigidbody>();
         GameObject player = GameObject.Find("Player");
@@ -64,6 +66,8 @@ public class GroundSlam : MonoBehaviour
     {
         isSlamming = true;
         // squish annimation last 4 seconds
+
+        pentagram.SetActive(true);
         Invoke("GroundSlamAttack", 4f);
         Debug.Log("Squished");
     }
@@ -76,6 +80,7 @@ public class GroundSlam : MonoBehaviour
     }
     void StartSlam()
     {
+        pentagram.SetActive(false);
         hitbox.SetActive(true);
         Debug.Log("Slammed");
         Invoke("EndSlam", 0.1f);

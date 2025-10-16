@@ -81,7 +81,7 @@ public class RangeMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(origin, horizontalDir, out hit, distance))
         {
-            if (hit.collider.gameObject == target || hit.collider.tag == "enemy")
+            if (hit.collider.gameObject == target)
             {
                 Debug.Log("Distance: " + distance);
                 return true;
