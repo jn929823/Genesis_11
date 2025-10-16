@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        Idle();
         idleSprite.enabled = true;
         attackSprite.enabled = false;
         hurtSprite.enabled = false;
@@ -74,12 +75,6 @@ public class EnemyHealth : MonoBehaviour
             idleSprite.enabled = false;
             attackSprite.enabled = false;
             hurtSprite.enabled = true;
-            if(timePassed > 1f)
-            {
-                idleSprite.enabled = true;
-                attackSprite.enabled = false;
-                hurtSprite.enabled = false;
-            }
         }
         if (other.tag == "Player")
         {
@@ -101,5 +96,12 @@ public class EnemyHealth : MonoBehaviour
     {
         currentEnemyHealth -= amount;
         currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+    }
+
+    void Idle()
+    {
+        idleSprite.enabled = true;
+        attackSprite.enabled = false;
+        hurtSprite.enabled = false;
     }
 }
