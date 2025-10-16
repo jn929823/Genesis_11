@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        Idle();
         idleSprite.enabled = true;
         attackSprite.enabled = false;
         hurtSprite.enabled = false;
@@ -71,14 +72,10 @@ public class EnemyHealth : MonoBehaviour
         {
             EnemyTakeDamage(5);
             if (hurtAudio != null) hurtAudio.Play();
-            idleSprite.enabled = false;
-            attackSprite.enabled = false;
-            hurtSprite.enabled = true;
-            if(timePassed > 1f)
+            if (timePassed > 1f)
             {
-                idleSprite.enabled = true;
-                attackSprite.enabled = false;
-                hurtSprite.enabled = false;
+                Idle();
+                timePassed = 0f;
             }
         }
         if (other.tag == "Player")
@@ -90,9 +87,8 @@ public class EnemyHealth : MonoBehaviour
             playerHealth.TakeDamage(10);
             if(timePassed > 1f)
             {
-                idleSprite.enabled = true;
-                attackSprite.enabled = false;
-                hurtSprite.enabled = false;
+                Idle();
+                timePassed = 0f;
             }
             
         }
@@ -101,5 +97,12 @@ public class EnemyHealth : MonoBehaviour
     {
         currentEnemyHealth -= amount;
         currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+    }
+
+    void Idle()
+    {
+        idleSprite.enabled = true;
+        attackSprite.enabled = false;
+        hurtSprite.enabled = false;
     }
 }
