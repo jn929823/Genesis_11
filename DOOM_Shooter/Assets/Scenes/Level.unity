@@ -3935,7 +3935,7 @@ MonoBehaviour:
   haveGreenKey: 0
   greenKey: {fileID: 1869341701}
   haveYellowKey: 0
-  yellowKey: {fileID: 0}
+  yellowKey: {fileID: 626406484}
   haveRedKey: 0
   redKey: {fileID: 1958660398}
 --- !u!1 &380714638
@@ -38101,11 +38101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 190600791770096759, guid: 75e637689b4b3654dab7cf3a7ec05f86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2465066214514087236, guid: 75e637689b4b3654dab7cf3a7ec05f86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.4
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 2465066214514087236, guid: 75e637689b4b3654dab7cf3a7ec05f86, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38113,7 +38113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465066214514087236, guid: 75e637689b4b3654dab7cf3a7ec05f86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.33
+      value: -3.29
       objectReference: {fileID: 0}
     - target: {fileID: 2465066214514087236, guid: 75e637689b4b3654dab7cf3a7ec05f86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68356,7 +68356,7 @@ PrefabInstance:
       objectReference: {fileID: 140237034}
     - target: {fileID: 6671731500107864493, guid: 19c61d4f008db094d9b123b69cdcd4c3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7802568564566735326, guid: 19c61d4f008db094d9b123b69cdcd4c3, type: 3}
       propertyPath: m_PlayOnAwake

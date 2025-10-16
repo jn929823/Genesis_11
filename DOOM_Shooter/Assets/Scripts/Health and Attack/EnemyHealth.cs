@@ -72,9 +72,11 @@ public class EnemyHealth : MonoBehaviour
         {
             EnemyTakeDamage(5);
             if (hurtAudio != null) hurtAudio.Play();
-            idleSprite.enabled = false;
-            attackSprite.enabled = false;
-            hurtSprite.enabled = true;
+            if (timePassed > 1f)
+            {
+                Idle();
+                timePassed = 0f;
+            }
         }
         if (other.tag == "Player")
         {
@@ -85,9 +87,8 @@ public class EnemyHealth : MonoBehaviour
             playerHealth.TakeDamage(10);
             if(timePassed > 1f)
             {
-                idleSprite.enabled = true;
-                attackSprite.enabled = false;
-                hurtSprite.enabled = false;
+                Idle();
+                timePassed = 0f;
             }
             
         }
